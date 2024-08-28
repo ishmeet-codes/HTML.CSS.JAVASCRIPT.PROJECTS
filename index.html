@@ -14,23 +14,16 @@
     </style>
 </head>
 <body>
-    <button id="btn1" class="btn" onclick="toggleButtons()">Button 1</button>
-    <button id="btn2" class="btn" onclick="toggleButtons()" style="display: none;">Button 2</button>
-    <button id="btn3" class="btn">Button 3</button>
 
+    <button id="btn1" class="btn" onclick="showButton('btn2', 'btn1')">Button 1</button>
+    <button id="btn2" class="btn" onclick="showButton('btn3', 'btn2')" style="display: none;">Button 2</button>
+    <button id="btn3" class="btn" style="display: none;">Button 3</button>
     <script>
-        function toggleButtons() {
-            // Get the buttons by their IDs
-            var btn1 = document.getElementById('btn1');
-            var btn2 = document.getElementById('btn2');
-            if (btn1.style.display === 'none') {
-                btn1.style.display = 'inline-block';
-                btn2.style.display = 'none';
-            } else {
-                btn1.style.display = 'none';
-                btn2.style.display = 'inline-block';
-            }
+        function showButton(showId, hideId) {
+            document.getElementById(showId).style.display = 'inline-block';
+            document.getElementById(hideId).style.display = 'none';
         }
     </script>
+
 </body>
 </html>
