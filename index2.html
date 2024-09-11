@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        .dice-container {
+            margin-bottom: 20px;
+        }
+
+        .dice {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            background-color: peachpuff ;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dice-container">
+        <div class="dice" id="dice">1</div>
+    </div>
+    <button onclick="rollDice()">Roll the Dice</button>
+
+    <script>
+        function rollDice() {
+            const dice = document.getElementById("dice");
+            let rollCount = 0;
+
+            const rollingAnimation = setInterval(() => {
+                const randomNum = Math.floor(Math.random() * 6) + 1; 
+                dice.textContent = randomNum; 
+                rollCount++;
+
+                if (rollCount >= 10) {
+                    clearInterval(rollingAnimation);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
